@@ -1,0 +1,19 @@
+{% set nb = 0 %}
+
+{% if list is defined %}
+
+{% if list is empty %}
+<h1>list is empty</h1>
+{% else %}
+{% for i in list %}
+{% set nb = nb+1 %}
+Id: {{ i.id }} ~ Name: {{i.username | upper}} --{{nb}}  <img src={{i.picture}}> 
+<a href={{path('app_author_details',{'id':i.id})}}>Details</a>
+<br>
+{% endfor %}
+Le nombre d'auteur est: {{list | length}}
+{% endif %}
+{% else %}
+
+<h1>list not defined</h1>
+{% endif %}
