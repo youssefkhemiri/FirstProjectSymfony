@@ -1,0 +1,25 @@
+<ul>
+{% if list is defined %}
+{% if list is empty %}
+{% set nb_1 = 0%}
+{% set nb_2 = 0%}
+<h1>Tableau vide</h1>
+{% else %}
+
+{% for a in list  %}
+{% if a.published  %}
+<li>{{a.title}} - {{a.category}} - {{a.author.username}} 
+</li>
+{% set nb_1 = nb_1+1%}
+{% else %}
+{% set nb_2 = nb_2+1%}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{% else %}
+<h1>Tableau non défini </h1>
+{% endif %}
+</ul>
+Le nombre published est: {{nb_1}}
+Le nombre not published est: {{nb_2}}
