@@ -70,4 +70,5 @@ class BookController extends AbstractController
             'list' => $books,
         ]);
     }
+    
 }
