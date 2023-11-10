@@ -23,7 +23,7 @@ class BookType extends AbstractType
                 ],
                 ])
             ->add('oublicationDate')
-            ->add('published')
+            
             ->add('author', EntityType::class, [
                 'class' => 'App\Entity\Author',
                 'choice_label' => 'username',

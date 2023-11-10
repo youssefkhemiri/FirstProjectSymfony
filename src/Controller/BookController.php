@@ -49,8 +49,11 @@ class BookController extends AbstractController
     function edit(BookRepository $rep, $id, Request $r){
         $book = $rep->find($id);
         $form = $this->createForm(BookType::class, $book);
+        $form->add('published');
         $form->add('Save', SubmitType::class);
         $form->handleRequest($r);
+        
+
         if($form->isSubmitted() && $form->isValid()){
             $em=$this->getDoctrine()->getManager();
             $em->flush();
@@ -70,5 +73,5 @@ class BookController extends AbstractController
             'list' => $books,
         ]);
     }
-    
+
 }
